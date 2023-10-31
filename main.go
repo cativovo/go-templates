@@ -40,6 +40,12 @@ type NavItem struct {
 	Label string
 }
 
+type MenuItem struct {
+	Name        string
+	Description string
+	Price       float64
+}
+
 func main() {
 	router := chi.NewRouter()
 
@@ -74,10 +80,20 @@ func main() {
 	router.Get("/menu", func(w http.ResponseWriter, r *http.Request) {
 		w.Header().Set("Content-Type", "text/html")
 
+		menuItems := []MenuItem{
+			{Name: "Spaghetti Carbonara", Description: "Delicious pasta with eggs, cheese, and pancetta.", Price: 12.99},
+			{Name: "Margherita Pizza", Description: "Classic pizza with tomato sauce, mozzarella, and basil.", Price: 10.49},
+			{Name: "Grilled Chicken Salad", Description: "Fresh salad with grilled chicken, mixed greens, and vinaigrette.", Price: 9.99},
+			{Name: "Cheeseburger", Description: "Juicy beef patty with cheese, lettuce, and tomato.", Price: 8.99},
+			{Name: "Vegetarian Stir-Fry", Description: "Stir-fried vegetables with tofu in a savory sauce.", Price: 11.49},
+			{Name: "Chocolate Brownie Sundae", Description: "Warm chocolate brownie with ice cream and whipped cream.", Price: 6.99},
+		}
+
 		menuPageTmpl.Execute(w, map[string]interface{}{
 			"Boosted":    r.Header.Get("Hx-Boosted") == "true",
 			"ActivePage": r.RequestURI,
 			"NavItems":   navItems,
+			"MenuItems":  menuItems,
 		})
 	})
 
