@@ -17,23 +17,18 @@
   </head>
 
   <body class="bg-gray-100">
-    <!-- Navbar -->
+    <!-- prettier-ignore -->
     {{- template "navbar.html" . -}}
-    <!-- Page -->
     {{- template "page" . -}}
-    <!-- Footer -->
     {{- template "footer.html" . -}}
   </body>
 </html>
 
 {{- else -}}
 
-<!-- Navbar -->
+<!-- prettier-ignore -->
 {{- template "navbar.html" . -}}
-<!-- Page -->
 {{- template "page" . -}}
-<!-- Footer -->
 {{- template "footer.html" . -}}
 
-<!-- -->
 {{- end -}}

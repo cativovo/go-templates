@@ -5,10 +5,14 @@
     {{- $ActivePage := .ActivePage -}}
     <ul class="flex">
       {{- range .NavItems -}}
+      <!-- prettier-ignore -->
+      {{- $ActiveClass := "font-semibold rounded bg-gray-600" -}}
+      {{- $InactiveClass := "hover:text-gray-300" -}}
+      {{- $CommonClass := "w-20 py-2 flex justify-center" -}}
       <li
-        class="w-20 py-2 flex justify-center {{ if eq .Uri $ActivePage }} font-semibold rounded bg-gray-600 {{end}}"
+        class="{{ $CommonClass }} {{- if eq .Uri $ActivePage }} {{ $ActiveClass }} {{ else }} {{ $InactiveClass }}  {{ end }}"
       >
-        <a href="{{.Uri}}" class="hover:text-gray-300">{{.Label}}</a>
+        <a href="{{ .Uri }}">{{ .Label }}</a>
       </li>
       {{- end -}}
     </ul>
