@@ -12,6 +12,7 @@ var homePageTmpl = template.Must(
 	template.ParseFiles(
 		"templates/base_layout.html",
 		"templates/components/navbar.html",
+		"templates/components/menu_item.html",
 		"templates/pages/home.html",
 		"templates/components/footer.html",
 	),
@@ -21,6 +22,7 @@ var menuPageTmpl = template.Must(
 	template.ParseFiles(
 		"templates/base_layout.html",
 		"templates/components/navbar.html",
+		"templates/components/menu_item.html",
 		"templates/pages/menu.html",
 		"templates/components/footer.html",
 	),
@@ -70,10 +72,20 @@ func main() {
 	router.Get("/", func(w http.ResponseWriter, r *http.Request) {
 		w.Header().Set("Content-Type", "text/html")
 
+		specials := []MenuItem{
+			{Name: "Fettuccine Alfredo", Description: "Creamy pasta with Parmesan cheese and garlic sauce.", Price: 13.99},
+			{Name: "Hawaiian Pizza", Description: "Pizza with ham, pineapple, and mozzarella cheese.", Price: 11.99},
+			{Name: "Caesar Salad", Description: "Crisp romaine lettuce with Caesar dressing, croutons, and parmesan cheese.", Price: 7.49},
+			{Name: "Bacon Cheeseburger", Description: "Deluxe burger with bacon, cheese, lettuce, and tomato.", Price: 10.99},
+			{Name: "Vegan Pad Thai", Description: "Stir-fried rice noodles with tofu and a tangy sauce.", Price: 12.49},
+			{Name: "Tiramisu", Description: "Classic Italian dessert with coffee-soaked ladyfingers and mascarpone cream.", Price: 6.99},
+		}
+
 		homePageTmpl.Execute(w, map[string]interface{}{
 			"Boosted":    r.Header.Get("Hx-Boosted") == "true",
 			"ActivePage": r.RequestURI,
 			"NavItems":   navItems,
+			"Specials":   specials,
 		})
 	})
 
