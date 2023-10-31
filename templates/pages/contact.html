@@ -1,0 +1,77 @@
+{{- block "page" . -}}
+<!-- Contact Section -->
+<section id="contact" class="py-10">
+  <div class="container mx-auto text-center">
+    <h2 class="text-3xl font-bold mb-4">Contact Us</h2>
+    <p class="text-gray-600">We'd love to hear from you.</p>
+
+    <!-- Contact Information -->
+    <div class="text-left mt-8">
+      <h3 class="text-xl font-semibold">Contact Information</h3>
+      <p class="text-gray-600">
+        Address: 123 Main Street, City, Country<br />
+        Phone: (123) 456-7890<br />
+        Email: info@restaurantname.com
+      </p>
+    </div>
+
+    <!-- Contact Form -->
+    <div class="mt-8">
+      <h3 class="text-xl font-semibold">Send us a message</h3>
+      <form action="submit_form.php" method="post" class="mt-4">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div>
+            <label for="name" class="block text-gray-600">Name</label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              class="w-full p-2 border border-gray-300 rounded focus:outline-none"
+            />
+          </div>
+          <div>
+            <label for="email" class="block text-gray-600">Email</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              class="w-full p-2 border border-gray-300 rounded focus:outline-none"
+            />
+          </div>
+        </div>
+        <div class="mt-4">
+          <label for="message" class="block text-gray-600">Message</label>
+          <textarea
+            id="message"
+            name="message"
+            rows="5"
+            class="w-full p-2 border border-gray-300 rounded focus:outline-none"
+          ></textarea>
+        </div>
+        <div class="mt-4">
+          <button
+            type="submit"
+            class="bg-gray-900 text-white px-4 py-2 rounded hover:bg-gray-800"
+          >
+            Submit
+          </button>
+        </div>
+      </form>
+    </div>
+
+    <!-- Map (Replace with actual map embed code) -->
+    <div class="mt-8">
+      <h3 class="text-xl font-semibold">Find Us on the Map</h3>
+      <!-- Replace the following with your actual map embed code -->
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12345.67890!2d-71.123456!3d42.345678!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0:0x0!2zMjHCsDU5JzEwLjMiTiA3McKwMjQnMzkuMCJX!5e0!3m2!1sen!2sus!4v1234567890123!5m2!1sen!2sus"
+        width="600"
+        height="450"
+        style="border: 0"
+        allowfullscreen=""
+        loading="lazy"
+      ></iframe>
+    </div>
+  </div>
+</section>
+{{- end -}}

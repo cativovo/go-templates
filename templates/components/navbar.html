@@ -1,0 +1,16 @@
+<!-- Navigation Bar -->
+<nav class="bg-gray-900 text-white p-4" hx-boost="true">
+  <div class="container mx-auto flex justify-between items-center">
+    <a href="/" class="text-2xl font-bold">Restaurant Name</a>
+    {{- $ActivePage := .ActivePage -}}
+    <ul class="flex">
+      {{- range .NavItems -}}
+      <li
+        class="w-20 py-2 flex justify-center {{ if eq .Uri $ActivePage }} font-semibold rounded bg-gray-600 {{end}}"
+      >
+        <a href="{{.Uri}}" class="hover:text-gray-300">{{.Label}}</a>
+      </li>
+      {{- end -}}
+    </ul>
+  </div>
+</nav>
